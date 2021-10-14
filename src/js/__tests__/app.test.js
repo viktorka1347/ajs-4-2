@@ -1,15 +1,34 @@
-import sortByHealt from '../app';
+import showHealth from '../health';
 
-test('Функция должна сортировать массив героев по убыванию здоровья', () => {
-  const inputArray = [
-    { name: 'мечник', health: 10 },
-    { name: 'маг', health: 100 },
-    { name: 'лучник', health: 80 },
-  ];
-  const outputArray = [
-    { name: 'маг', health: 100 },
-    { name: 'лучник', health: 80 },
-    { name: 'мечник', health: 10 },
-  ];
-  expect(sortByHealt(inputArray)).toEqual(outputArray);
+test('should healthy', () => {
+  const received = showHealth({ name: 'Маг', health: 90 });
+  expect(received).toBe('healthy');
+});
+
+test('should wounded', () => {
+  const received = showHealth({ name: 'Маг', health: 40 });
+  expect(received).toBe('wounded');
+});
+
+test('should critical', () => {
+  const received = showHealth({ name: 'Маг', health: 10 });
+  expect(received).toBe('critical');
+});
+
+test('Parameter is not a number!', () => {
+  expect(() => {
+    showHealth({});
+  }).toThrow();
+});
+
+test('Parameter is not a number!', () => {
+  expect(() => {
+    showHealth({ name: 'Маг', health: 'mistake' });
+  }).toThrow();
+});
+
+test('Parameter is not a number!', () => {
+  expect(() => {
+    showHealth({ name: 'Маг', health: -10 });
+  }).toThrow();
 });
