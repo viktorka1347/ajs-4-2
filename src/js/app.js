@@ -1,5 +1,8 @@
-  import showHealth from './health';
+import sortUnits from './sort';
 
-console.log('worked');
-
-showHealth(70);
+const a = [
+  { name: 'мечник', health: 10 },
+  { name: 'маг', health: 100 },
+  { name: 'лучник', health: 80 },
+];
+sortUnits(a);
