@@ -1,31 +1,28 @@
-import sortUnits from '../sort';
+import sortByHealt from '../app';
 
-test('sort tobe mistake', () => {
-  const a = [
+test('Функция должна сортировать массив героев по убыванию здоровья', () => {
+  const inputArray = [
     { name: 'мечник', health: 10 },
     { name: 'маг', health: 100 },
     { name: 'лучник', health: 80 },
   ];
-  const b = [
+  const outputArray = [
     { name: 'маг', health: 100 },
     { name: 'лучник', health: 80 },
     { name: 'мечник', health: 10 },
   ];
-  const result = sortUnits(a);
-  expect(result).not.toBe(b);
+  expect(sortByHealt(inputArray)).toEqual(outputArray);
 });
-
-test('sort toEqual success', () => {
-  const a = [
+test('Функция должна сортировать массив героев по убыванию здоровья', () => {
+  const inputArray = [
     { name: 'мечник', health: 10 },
     { name: 'маг', health: 100 },
     { name: 'лучник', health: 80 },
   ];
-  const b = [
+  const outputArray = [
     { name: 'маг', health: 100 },
-    { name: 'лучник', health: 80 },
+    { name: 'лучник', health: 60 },
     { name: 'мечник', health: 10 },
   ];
-  const result = sortUnits(a);
-  expect(result).toEqual(b);
+  expect(sortByHealt(inputArray)).not.toBe(outputArray);
 });
