@@ -21,7 +21,7 @@ test('Функция должна сортировать массив герое
   ];
   const outputArray = [
     { name: 'маг', health: 100 },
-    { name: 'лучник', health: 60 },
+    { name: 'лучник', health: 80 },
     { name: 'мечник', health: 10 },
   ];
   expect(sortByHealt(inputArray)).not.toBe(outputArray);
